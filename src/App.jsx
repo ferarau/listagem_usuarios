@@ -42,6 +42,22 @@ function App() {
     mostrarMensagemSucesso("Usuário cadastrado com sucesso!");
   };
 
+  // Função para excluir o usuário
+  const handleExcluirUsuario = async (id, e) => {
+    if (e) e.stopPropagation(); // Evita abrir os detalhes do usuário ao clicar em excluir
+
+    try {
+      // Tenta fazer a requisição para a API
+      await axios.delete(`${url}/users/${id}`);
+    } catch (error) {
+      // Caso seja um usuário criado localmente (ID > 10) ou dê erro no servidor, ignora o erro de API
+    } finally {
+      // Remove o usuário da lista local
+      setUsuarios((prevUsuarios) => prevUsuarios.filter((u) => u.id !== id));
+      mostrarMensagemSucesso("Usuário excluído com sucesso!");
+    }
+  };
+
   async function buscarUsuario(id) {
     const usuarioExistente = usuarios.find((u) => u.id === id);
     if (usuarioExistente && typeof id === "number" && id > 10) {
@@ -127,6 +143,7 @@ function App() {
               <UserListComponent
                 usuarios={usuariosFiltrados}
                 onSelecionarUsuario={(usuario) => buscarUsuario(usuario.id)}
+                onExcluirUsuario={handleExcluirUsuario}
               />
             </>
           )}

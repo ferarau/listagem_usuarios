@@ -22,7 +22,6 @@ function UserDetailsComponent({ usuario, onSelecionarUsuario }) {
         <strong>Website: </strong>{usuario.website}
       </p>
 
-      {/* O botão fica bem aqui: */}
       <button className="back-button" onClick={() => onSelecionarUsuario(null)}>
         Voltar para a lista
       </button>

@@ -19,7 +19,7 @@ function UserFormComponent({ onAdicionarUsuario, onCancelar }) {
     e.preventDefault();
 
     const novoUsuario = {
-      id: Date.now(), // Gera um ID único simples
+      id: Date.now(), 
       name: formData.name,
       username: formData.username || formData.name.toLowerCase().replace(/\s+/g, ""),
       email: formData.email,

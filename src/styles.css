@@ -114,12 +114,21 @@ body::after {
   padding: 16px;
   border-radius: 12px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 16px rgba(147, 51, 234, 0.15);
   border-color: #d8b4fe;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .user-name {
@@ -140,6 +149,27 @@ body::after {
 .user-email {
   color: #7e22ce;
   font-size: 0.85rem;
+}
+
+/* Botão de Excluir */
+.delete-button {
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.delete-button:hover {
+  background-color: #dc2626;
+}
+
+.delete-button:active {
+  transform: scale(0.95);
 }
 
 .error-message {
@@ -186,28 +216,25 @@ body::after {
 
 /* Estilo do botão de voltar */
 .back-button {
-  background-color: #7c3aed; /* Roxo */
+  background-color: #7c3aed;
   color: #ffffff;
   border: none;
-  padding: 8px 16px; /* Tamanho um pouco menor */
-  font-size: 14px; /* Texto um pouco menor */
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
-  
-  /* Centraliza o botão */
   display: block;
   margin: 20px auto 0;
-
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .back-button:hover {
-  background-color: #6d28d9; /* Roxo mais escuro ao passar o mouse */
+  background-color: #6d28d9;
 }
 
 .back-button:active {
-  transform: scale(0.97); /* Efeito de clique */
+  transform: scale(0.97);
 }
 
 /* Botão de adicionar novo usuário */
@@ -289,9 +316,7 @@ body::after {
   background-color: #d1d5db;
 }
 
-/* =========================================
-   Estilos de Modal
-   ========================================= */
+/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
